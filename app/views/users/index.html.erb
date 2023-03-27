@@ -1,0 +1,32 @@
+
+<div class="ui middle aligned grid mt15">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <i class="user icon"></i>
+        <div class="content">
+          利用者一覧
+        </div>
+      </h2>
+  
+      <div id="users" class="mb20">
+        <% @users.each do |user| %>
+          <div class="ui card">
+            <%= render user %>
+            <div class="extra content">
+            <%= link_to user, class: "ui button" do %>
+              <i class="icon user circle"></i>
+              プロフィール詳細へ
+            <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  
+      <%= link_to signup_path, class: "ui column teal button" do %>
+        <i class="icon user"></i>
+        アカウント新規作成
+      <% end %>
+  
+    </div>
+  </div>
+  

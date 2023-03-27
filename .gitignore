@@ -29,3 +29,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+# 画像ファイル、フォルダの追跡を無視する
+images-a/
+*.jpg
+*.pn

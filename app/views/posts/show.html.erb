@@ -1,0 +1,14 @@
+<% @posts.each do |post| %>
+<div class="one-post">
+    <%= link_to post_path(post) do %>
+    <p class="caption">ユーザ名</p>
+    <p class="caption mb-0"><%= post.location %></p>
+    <p class="caption"><%= "#{post.comments.count} コメント" %></p> 
+    <% end %>
+  </div>
+ <% end %>
+<%= link_to '編集する', edit_post_path(@post.id) %><br>
+
+<%= link_to '削除する', post_path(@post.id),method: :delete, "data-confirm"=>"本当に消しますか？" %><br>
+
+<%= link_to '投稿一覧ページへ', posts_path %>
