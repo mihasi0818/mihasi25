@@ -1,0 +1,42 @@
+
+
+
+
+<p>本日の日付:<%= Date.current.strftime('%Y/%-m/%-d') %></p>
+<p>件数  <%= Post.count %></p>
+
+
+<h1>投稿一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>おすすめキャラ(pick)</th>
+      <th>有利なキャラ</th>
+      <th>苦手なキャラ</th>
+      <th>おすすめチーム構成</th>
+      </tr>
+   </thead>
+
+  
+
+   <tbody>
+    <% @posts.each do |post| %>
+    <p class="caption"><%= post.user.name %></p>  
+    <tr>
+    
+       <td><%= post.title%>
+         <td><%= post.a_id%>
+         <td><%= post.create_at%></td>
+        </tr>
+        <%= paginate @posts %>  
+     <%end%>
+
+   </tbody>
+</table>
+<%= link_to "予定の新規追加", new_post_path %>
+
+
+
+
+
