@@ -1,4 +1,9 @@
 class Comment < ApplicationRecord
-    belongs_to :user  #この行を追記
-    belongs_to :post  #この行を追記
+  belongs_to :post
+ belongs_to :user
+ validates :content, length: { minimum: 1 }
+ 
 end
+
+
+

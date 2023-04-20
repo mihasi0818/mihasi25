@@ -1,4 +1,11 @@
 ---
+jp:
+  users:
+    guest: "ゲストユーザー"
+  
+  sessions:
+    logged_in_as_guest: "Logged in as a guest user."
+
 ja:
   activerecord:
     errors:

@@ -1,1380 +1,1873 @@
-<h1>新規投稿</h1>
 
-<p>選択してください</p>
-<div class="actions">
 <%= form_with(model: @post, local: true) do |f| %>
-<table class="main"> 
-  <tr>
-    <th><%= f.label :title ,"タイトル" %></th>
-    <td><%= f.text_field :title %></td>
-  </tr>
+  
+<main>
+  
+<p class="ppp">おすすめ（PICK）</p>
 
-     <tr>
-      <th><%= f.label :a_id ,"おすすめキャラ（pick）" %></th>
+  <div class="select1">
+  
+<div>
+  <input class="form-check-input" type="radio" name="maker1" value="1" id="tank_1" onclick="formSwitch()" />
+  <label for="tank_1">タンク</label>  
+  <input class="form-check-input" type="radio" name="maker1" value="2" id="fight_1" onclick="formSwitch()" />
+  <label for="fight_1">ファイター</label>
+  <input class="form-check-input" type="radio" name="maker1" value="3" id="mage_1" onclick="formSwitch()" />
+  <label for="mage_1">メイジ</label>
+</div>
+<div>
+  <input class="form-check-input" type="radio" name="maker1" value="4" id="asasin_1" onclick="formSwitch()" />
+  <label for="asasin_1">アサシン</label>
+  <input class="form-check-input" type="radio" name="maker1" value="5" id="hanter_1" onclick="formSwitch()" />
+  <label for="hanter_1">ハンター</label>
+  <input class="form-check-input" type="radio" name="maker1" value="6" id="support_1" onclick="formSwitch()" />
+  <label for="support_1">サポート</label>
+ 
+</div>
+
+</div>
+
+<td colspan="6">
+  <div id="tankList">
+    <div class="list">
+    <%= f.label :image_url1%><br>
+<!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+<%posts = [
+    "/images/Tank/Hero041-icon.webp",
+    "/images/Tank/Hero061-icon.webp",
+    "/images/Tank/Hero091-icon.webp",
+    "/images/Tank/Hero101-icon.webp",
+    "/images/Tank/Hero191-icon.webp",
+    "/images/Tank/Hero201-icon.webp",
+    "/images/Tank/Hero291-icon.webp",
+    "/images/Tank/Hero321-icon.webp",
+    "/images/Tank/Hero351-icon.webp",
+    "/images/Tank/Hero411-icon.webp",
+    "/images/Tank/Hero491-icon.webp"
+  ];
+%>
+
+     <% posts.each do |post| %>
+     <label>
+       <label class="tank">
+         <%= f.radio_button(:image_url1, post , {style: "display:none;"}) %>
+         <%= image_tag post, size: "50x50" %>
+       </label>
+       <br>
+      </label>
+     <% end %>
+</div>
+      <div class="list"><br>
+      <%= f.label :image_url1%>
+  <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+  <%posts = [ "/images/Tank/Hero591-icon.webp",
+  "/images/Tank/Hero701-icon.webp",
+  "/images/Tank/Hero781-icon.webp",
+  "/images/Tank/Hero811-icon.webp",
+  "/images/Tank/Hero871-icon.webp",
+  "/images/Tank/Hero881-icon.webp",
+  "/images/Tank/Hero931-icon.webp",
+  "/images/Tank/Hero1041-icon.webp",
+  "/images/Tank/Hero1111-icon.webp",
+  "/images/Tank/Hero1171-icon.webp"
       
-       <td>
-         <input class="form-check-input" type="radio" name="maker" value="1" id="tank_1" onclick="formSwitch()"checked />
-         <label for="tank_1">タンク</label>
-         <input class="form-check-input" type="radio" name="maker" value="2" id="fight_1" onclick="formSwitch()" />
-         <label for="fight_1">ファイター</label>
-         <input class="form-check-input" type="radio" name="maker" value="3" id="mage_1" onclick="formSwitch()" />
-         <label for="mage_1">メイジ</label>
-         <input class="form-check-input" type="radio" name="maker" value="4" id="asasin_1" onclick="formSwitch()" />
-         <label for="asasin_1">アサシン</label>
-         <input class="form-check-input" type="radio" name="maker" value="5" id="hanter_1" onclick="formSwitch()" />
-         <label for="hanter_1">ハンター</label>
-         <input class="form-check-input" type="radio" name="maker" value="6" id="support_1" onclick="formSwitch()" />
-         <label for="support_1">サポート</label>
-        </td>
-     </tr>
-
-     <tr>
-      <td colspan="6">
-         <div id="tankList">
-          <div class="list_1">
-          <div class="form-check">
-             <input type="radio" name="select_1" value="10" id="a_id" />
-             <label for="a_id"></label>
-           </div>
-           <div class="form-check">
-             <input type="radio" name="select_1" value="11" id="tank_11" />
-             <label for="tank_11"></label>
-           </div>
-           <div class="form-check">
-             <input type="radio" name="select_1" value="12" id="tank_12" />
-             <label for="tank_12"></label>
-           </div>
-           <div class="form-check">
-             <input type="radio" name="select_1" value="13" id="tank_13" />
-             <label for="tank_13"></label>
-            </div>
-           
-           <div class="form-check">
-             <input type="radio" name="select_1" value="14" id="tank_14" />
-             <label for="tank_14"></label>
-           </div>
-        
-    </div>
-          <div class="list_2">
-           <div class="form-check">
-             <input type="radio" name="select_1" value="15" id="tank_15" />
-             <label for="tank_15"></label>
-           </div>
-
-           <div class="form-check">
-             <input type="radio" name="select_1" value="16" id="tank_16" />
-             <label for="tank_16"></label>
-           </div>
-
-           <div class="form-check">
-             <input type="radio" name="select_1" value="17" id="tank_17" />
-             <label for="tank_17"></label>
-           </div>
-
-           <div class="form-check">
-             <input type="radio" name="select_1" value="18" id="tank_18" />
-             <label for="tank_18"></label>
-           </div>
-      
-           <div class="form-check">
-             <input type="radio" name="select_1" value="19" id="tank_19" />
-             <label for="tank_19"></label>
-           </div>
-          </div>
-         
-          <div class="list_3">
-           <div class="form-check">
-             <input type="radio" name="select_1" value="20" id="tank_20" />
-             <label for="tank_20"></label>
-           </div>
-
-           <div class="form-check">
-             <input type="radio" name="select_1" value="21" id="tank_21" />
-             <label for="tank_21"></label>
-           </div>
-
-           <div class="form-check">
-             <input type="radio" name="select_1" value="22" id="tank_22" />
-             <label for="tank_22"></label>
-           </div>
-         </div>
-         </div>
+    ];
+  %>
+   
+  
+        <% posts.each do |post| %>
+      <label>
+        <label class="tank">
+        <%= f.radio_button(:image_url1, post, {style:"display:none;"}) %>
+        <%= image_tag post, size: "50x50" %>
+        </label>
+ 
+      <br>
+    </label>
+      <% end %>
+  </div>
+</div>
 
 
     <div id="fightList">
-            <div class="list_1">
-          <div class="form-check">
-          <input type="radio" name="select_1" value="31" id="fight_31" />
-          <label for="fight_31"></label>
-          </div>
-         
-          <div class="form-check">
-          <input type="radio" name="select_1" value="32" id="fight_32" />
-          <label for="fight_32"></label>
-          </div>
-
-          <div class="form-check">
-          <input type="radio"name="select_1"value="33" id="fight_33" />
-          <label for="fight_33"></label>
-          </div>
-
-          <div class="form-check">
-          <input type="radio"name="select_1" value="34" id="fight_34" />
-          <label for="fight_34"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="35" id="fight_35" />
-          <label for="fight_35"></label>
-         </div>
-         </div>
-
-         <div class="list_2">
-         <div class="form-check">
-          <input type="radio"name="select_1" value="36" id="fight_36" />
-          <label for="fight_36"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="37" id="fight_37" />
-          <label for="fight_37"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="38" id="fight_38" />
-          <label for="fight_38"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio" name="select_1"value="39" id="fight_39" />
-          <label for="fight_39"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="40" id="fight_40" />
-          <label for="fight_40"></label>
-         </div>
-         </div>
-
-         <div class="list_3">
-         <div class="form-check">
-          <input type="radio"name="select_1" value="41" id="fight_41" />
-          <label for="fight_41"></label>
-         </div>
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+        <% posts.each do |post| %>
+        <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url1, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+       
+            <br>
+          </label>
+        <% end %>
+      </div>
     
-       <div class="form-check">
-        <input type="radio"name="select_1" value="42" id="fight_42" />
-        <label for="fight_42"></label>
-        </div>
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+        <% posts.each do |post| %>
 
-        <div class="form-check">
-          <input type="radio"name="select_1" value="43" id="fight_43" />
-          <label for="fight_43"></label>
-         </div>
-
-        <div class="form-check">
-          <input type="radio"name="select_1" value="44" id="fight_44" />
-          <label for="fight_44"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="45" id="fight_45" />
-          <label for="fight_45"></label>
-         </div>
-         </div>
-
-         <div class="list_4">
-         <div class="form-check">
-          <input type="radio"name="select_1" value="46" id="fight_46" />
-          <label for="fight_46"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="47" id="fight_47" />
-          <label for="fight_47"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio" name="select_1"value="48" id="fight_48" />
-          <label for="fight_48"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="49" id="fight_49" />
-          <label for="fight_49"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="50" id="fight_50" />
-          <label for="fight_50"></label>
-         </div>
-         </div>
-
-         <div class="list_5">
-         <div class="form-check">
-          <input type="radio" name="select_1"value="51" id="fight_51" />
-          <label for="fight_51"></label>
-        </div>
-
-          <div class="form-check">
-          <input type="radio"name="select_1" value="52" id="fight_52" />
-          <label for="fight_52"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="53" id="fight_53" />
-          <label for="fight_53"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="54" id="fight_54" />
-          <label for="fight_54"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio" name="select_1"value="55" id="fight_55" />
-          <label for="fight_55"></label>
-         </div>
-        </div>
-        <div class="list_6">
-         <div class="form-check">
-          <input type="radio"name="select_1" value="56" id="fight_56" />
-          <label for="fight_56"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="57" id="fight_57" />
-          <label for="fight_57"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="58" id="fight_58" />
-          <label for="fight_58"></label>
-         </div>
-
-         <div class="form-check">
-          <input type="radio"name="select_1" value="59" id="fight_59" />
-          <label for="fight_59"></label>
-         </div>
-        </div>
+          <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url1, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
       </div>
     </div>
+    
 
 
-          <div id="mageList">
-            <div class="list_1">
-           <div class="form-check">
-               <input type="radio" name="select_1" value="60" id="mage_60" />
-               <label for="mage_60"></label>
-           </div>
 
-           <div class="form-check">
-            <input type="radio" name="select_1" value="61" id="mage_61" />
-            <label for="mage_61"></label>
-           </div>
 
-           <div class="form-check">
-            <input type="radio" name="select_1" value="62" id="mage_61" />
-            <label for="mage_62"></label>
-           </div>
 
-           <div class="form-check">
-            <input type="radio" name="select_1" value="63" id="mage_63" />
-            <label for="mage_63"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="64" id="mage_64" />
-            <label for="mage_64"></label>
-           </div>
-           </div>
-           <div class="list_2">
-           <div class="form-check">
-            <input type="radio" name="select_1" value="65" id="mage_65" />
-            <label for="mage_65"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="66" id="mage_66" />
-            <label for="mage_66"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="67" id="mage_67" />
-            <label for="mage_67"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="68" id="mage_68" />
-            <label for="mage_68"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="69" id="mage_69" />
-            <label for="mage_69"></label>
-           </div>
-           </div>
-           <div class="list_3">
-           <div class="form-check">
-            <input type="radio" name="select_1" value="70" id="mage_70" />
-            <label for="mage_70"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="71" id="mage_71" />
-            <label for="mage_71"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="72" id="mage_72" />
-            <label for="mage_72"></label>
-           </div>
-
-           <!--mage73はない-->
-           <div class="form-check">
-            <input type="radio" name="select_1" value="74" id="mage_74" />
-            <label for="mage_74"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="75" id="mage_75" />
-            <label for="mage_75"></label>
-           </div>
-           </div>
-
-           <div class="list_4">
-           <div class="form-check">
-            <input type="radio" name="select_1" value="76" id="mage_76" />
-            <label for="mage_76"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="77" id="mage_77" />
-            <label for="mage_77"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="78" id="mage_79" />
-            <label for="mage_78"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="80" id="mage_80" />
-            <label for="mage_80"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="81" id="mage_81" />
-            <label for="mage_81"></label>
-           </div>
-        </div>
-
-          <div class="list_5">
-         
-           <div class="form-check">
-            <input type="radio" name="select_1" value="82" id="mage_82" />
-            <label for="mage_82"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="83" id="mage_83" />
-            <label for="mage_83"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="84" id="mage_84" />
-            <label for="mage_84"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="85" id="mage_85" />
-            <label for="mage_85"></label>
-           </div>
-
-           <div class="form-check">
-            <input type="radio" name="select_1" value="86" id="mage_86" />
-            <label for="mage_86"></label>
-           </div>
-           </div>
-          </div>
-  <!--asasin-->
-        <div id="asasinList">
-          <div class="list_1">
-            <div class="form-check">
-              <input type="radio" name="select_1" value="90" id="asasin_90" />
-              <label for="asasin_90"></label>
-             </div>
-
-            <div class="form-check">
-              <input type="radio" name="select_1" value="91" id="asasin_91" />
-              <label for="asasin_91"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="92" id="asasin_92" />
-              <label for="asasin_92"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="93" id="asasin_93" />
-              <label for="asasin_93"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="94" id="asasin_94" />
-              <label for="asasin_94"></label>
-             </div>
-          </div>
-          <div class="list_2">
-             <div class="form-check">
-              <input type="radio" name="select_1" value="95" id="asasin_95" />
-              <label for="asasin_95"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="96" id="asasin_96" />
-              <label for="asasin_96"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="97" id="asasin_97" />
-              <label for="asasin_97"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="98" id="asasin_98" />
-              <label for="asasin_98"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="99" id="asasin_99" />
-              <label for="asasin_99"></label>
-             </div>
-             </div>
-             <div class="list_3">
-             <div class="form-check">
-              <input type="radio" name="select_1" value="100" id="asasin_100" />
-              <label for="asasin_100"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="101" id="asasin_101" />
-              <label for="asasin_101"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="102" id="asasin_102" />
-              <label for="asasin_102"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="103" id="asasin_103" />
-              <label for="asasin_103"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="104" id="asasin_104" />
-              <label for="asasin_104"></label>
-             </div>
-          </div>
-          <div class="list_4">
-             <div class="form-check">
-              <input type="radio" name="select_1" value="105" id="asasin_105" />
-              <label for="asasin_105"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="106" id="asasin_106" />
-              <label for="asasin_106"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="107" id="asasin_107" />
-              <label for="asasin_107"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="108" id="asasin_108" />
-              <label for="asasin_108"></label>
-             </div>
-
-             <div class="form-check">
-              <input type="radio" name="select_1" value="109" id="asasin_109" />
-              <label for="asasin_109"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="110" id="asasin_110" />
-              <label for="asasin_110"></label>
-             </div>
-            </div>
-             <!--hanter-->
-           <div id="hanterList">
-            <div class="form-check">
-              <input type="radio" name="select_1" value="120" id="hanter_120" />
-              <label for="hanter_120"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="121" id="hanter_121" />
-              <label for="hanter_121"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="122" id="hanter_122"/>
-              <label for="hanter_122"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="123" id="hanter_123" />
-              <label for="hanter_123"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="124" id="hanter_124" />
-              <label for="hanter_124"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="125" id="hanter_125" />
-              <label for="hanter_125"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="126" id="hanter_126" />
-              <label for="hanter_126"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="127" id="hanter_127" />
-              <label for="hanter_127"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="128" id="hanter_128" />
-              <label for="hanter_128"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="129" id="hanter_129" />
-              <label for="hanter_129"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="130" id="hanter_130" />
-              <label for="hanter_130"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="131" id="hanter_131" />
-              <label for="hanter_131"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="132" id="hanter_132" />
-              <label for="hanter_132"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="133" id="hanter_133" />
-              <label for="hanter_133"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="134" id="hanter_134" />
-              <label for="hanter_134"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="135" id="hanter_135" />
-              <label for="hanter_135"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="136" id="hanter_136" />
-              <label for="hanter_136"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="137" id="hanter_137" />
-              <label for="hanter_137"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="138" id="hanter_138" />
-              <label for="hanter_138"></label>
-             </div>
-             <div class="form-check">
-              <input type="radio" name="select_1" value="139" id="hanter_139" />
-              <label for="hanter_139"></label>
-             </div>
-          </div>
-
-          <div id="supportList"> 
-              <div class="form-check">
-                <input type="radio" name="select_1" value="140" id="hanter_140" />
-                <label for="support_140"></label>
-               </div>
-                
-                <div class="form-check">
-                  <input type="radio" name="select_1" value="141" id="hanter_141" />
-                  <label for="support_141"></label>
-                 </div>
-                  
-                  <div class="form-check">
-                    <input type="radio" name="select_1" value="142" id="hanter_142" />
-                    <label for="support_142"></label>
-                   </div>
-                    
-                    <div class="form-check">
-                      <input type="radio" name="select_1" value="143" id="hanter_143" />
-                      <label for="support_143"></label>
-                     </div>
-                      
-                      <div class="form-check">
-                        <input type="radio" name="select_1" value="144" id="hanter_1404" />
-                        <label for="support_144"></label>
-                       </div>
-                        
-                        <div class="form-check">
-                          <input type="radio" name="select_1" value="145" id="hanter_145" />
-                          <label for="support_145"></label>
-                         </div>
-                          
-                          <div class="form-check">
-                            <input type="radio" name="select_1" value="146" id="hanter_146" />
-                            <label for="support_146"></label>
-                           </div>
-                            
-                            <div class="form-check">
-                              <input type="radio" name="select_1" value="147" id="hanter_147" />
-                              <label for="support_147"></label>
-                             </div>
-                              
-                              <div class="form-check">
-                                <input type="radio" name="select_1" value="148" id="hanter_148" />
-                                <label for="support_148"></label>
-                               </div>
-                                
-                                <div class="form-check">
-                                  <input type="radio" name="select_1" value="149" id="hanter_149" />
-                                  <label for="support_149"></label>
-                                 </div>
-                                  
-                                  <div class="form-check">
-                                    <input type="radio" name="select_1" value="150" id="hanter_150" />
-                                    <label for="support_150"></label>
-                                   </div>
-                                    
-                                    <div class="form-check">
-                                      <input type="radio" name="select_1" value="151" id="hanter_151" />
-                                      <label for="support_151"></label>
-                                     </div>
-                                      
-                                      <div class="form-check">
-                                        <input type="radio" name="select_1" value="152" id="hanter_152" />
-                                        <label for="support_152"></label>
-                                       </div>
-                                        
-                                        <div class="form-check">
-                                          <input type="radio" name="select_1" value="153" id="hanter_153" />
-                                          <label for="support_153"></label>
-                                         </div>
-
-                                          
-                                          <div class="form-check">
-                                            <input type="radio" name="select_1" value="154" id="hanter_154" />
-                                            <label for="support_154"></label>
-                                           </div>
-                                            
-                                            <div class="form-check">
-                                              <input type="radio" name="select_1" value="155" id="hanter_155" />
-                                              <label for="support_155"></label>
-                                             </div>
-            </div> 
+    <div id="mageList">
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
           
-        </td>
-                                          </tr>
-                                        
+        <% posts.each do |post| %>
+        <label >
+            <label class="mage">
+              <%= f.radio_button(:image_url1, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="mage">
+              <%= f.radio_button(:image_url1, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="asasinList">
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url1, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url1, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="hanterList">
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+           <%= f.radio_button(:image_url1, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+              <%= f.radio_button(:image_url1, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
 
 
- 
+    <div id="supportList">
+      <div class="list">
+        <%= f.label :image_url1 %><br>
+        <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="support">
+              <%= f.radio_button(:image_url1, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url1%><br>
+        <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="support">
+              <%= f.radio_button(:image_url1, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+</div>
+
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+  <p class="pp">有利なキャラ1 (advantageous,1)</p>
+  <td>
+    <div class="select1">
+      <div>
+    <input class="form-check-input" type="radio" name="maker2" value="1" id="tank_2" onclick="formSwitch2()" />
+    <label for="tank_2">タンク</label>
+    <input class="form-check-input" type="radio" name="maker2" value="2" id="fight_2" onclick="formSwitch2()" />
+    <label for="fight_2">ファイター</label>
+    <input class="form-check-input" type="radio" name="maker2" value="3" id="mage_2" onclick="formSwitch2()" />
+    <label for="mage_2">メイジ</label></div>
+    <div>
+    <input class="form-check-input" type="radio" name="maker2" value="4" id="asasin_2" onclick="formSwitch2()" />
+    <label for="asasin_2">アサシン</label>
+    <input class="form-check-input" type="radio" name="maker2" value="5" id="hanter_2" onclick="formSwitch2()" />
+    <label for="hanter_2">ハンター</label>
+    <input class="form-check-input" type="radio" name="maker2" value="6" id="support_2" onclick="formSwitch2()" />
+    <label for="support_2">サポート</label></div>
+  </div>
+  </td>
   
- 
-
-  <tr>
-    <th><%= f.label :a_id ,"有利なキャラ" %></th>
-   
-
-    <td>
-      <input class="form-check-input" type="radio" name="maker2" value="1" id="tank_2" onclick="formSwitch2()"  />
-      <label for="tank_2">タンク</label>
-      <input class="form-check-input" type="radio" name="maker2" value="2" id="fight_2" onclick="formSwitch2()" />
-      <label for="fight_2">ファイター</label>
-      <input class="form-check-input" type="radio" name="maker2" value="3" id="mage_2" onclick="formSwitch2()" />
-      <label for="mage_2">メイジ</label>
-      <input class="form-check-input" type="radio" name="maker2" value="4" id="asasin_2" onclick="formSwitch2()" />
-      <label for="asasin_2">アサシン</label>
-      <input class="form-check-input" type="radio" name="maker2" value="5" id="hanter_2" onclick="formSwitch2()" />
-      <label for="hanter_2">ハンター</label>
-      <input class="form-check-input" type="radio" name="maker2" value="6" id="support_2" onclick="formSwitch2()" />
-      <label for="support_2">サポート</label>
-     </td>
-    </tr>
-  
-     <tr>
   <td colspan="6">
-  <div id="tankList2">
-         <div class="list_1">
-         <div class="form-check">
-            <input type="radio" name="select_2" value="10" id="tank_10_2" />
-            <label for="tank_10_2"></label>
-          </div>
-          <div class="form-check">
-            <input type="radio" name="select_2" value="11" id="tank_11_2" />
-            <label for="tank_11_2"></label>
-          </div>
-          <div class="form-check">
-            <input type="radio" name="select_2" value="12" id="tank_12_2" />
-            <label for="tank_12_2"></label>
-          </div>
-          <div class="form-check">
-            <input type="radio" name="select_2" value="13" id="tank_13_2" />
-            <label for="tank_13_2"></label>
-           </div>
-          
-          <div class="form-check">
-            <input type="radio" name="select_2" value="14" id="tank_14_2" />
-            <label for="tank_14_2"></label>
-          </div>
-       </div>
-       <div class="list_2">
-          <div class="form-check">
-            <input type="radio" name="select_2" value="15" id="tank_15_2" />
-            <label for="tank_15_2"></label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" name="select_2" value="16" id="tank_16_2" />
-            <label for="tank_16_2"></label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" name="select_2" value="17" id="tank_17_2" />
-            <label for="tank_17_2"></label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" name="select_2" value="18" id="tank_18_2" />
-            <label for="tank_18_2"></label>
-          </div>
-     
-          <div class="form-check">
-            <input type="radio" name="select_2" value="19" id="tank_19_2" />
-            <label for="tank_19_2"></label>
-          </div>
-        </div>
+    <div id="tankList2">
+      <div class="list">
+      <%= f.label :image_url2%><br>
+  <%posts = [
+      "/images/Tank/Hero041-icon.webp",
+      "/images/Tank/Hero061-icon.webp",
+      "/images/Tank/Hero091-icon.webp",
+      "/images/Tank/Hero101-icon.webp",
+      "/images/Tank/Hero191-icon.webp",
+      "/images/Tank/Hero201-icon.webp",
+      "/images/Tank/Hero291-icon.webp",
+      "/images/Tank/Hero321-icon.webp",
+      "/images/Tank/Hero351-icon.webp",
+      "/images/Tank/Hero411-icon.webp",
+      "/images/Tank/Hero491-icon.webp"
+    ];
+  %>
+  
+       <% posts.each do |post| %>
+  <label>
+         <label class="tank">
+           <%= f.radio_button(:image_url2, post , {style: "display:none;"}) %>
+           <%= image_tag post, size: "50x50" %>
+         </label>
+         <br>
+        </label>
+       <% end %>
+      </div>
+      <div class="list">
+        <%= f.label :image_url2%><br>
+    <%posts = [ "/images/Tank/Hero591-icon.webp",
+    "/images/Tank/Hero701-icon.webp",
+    "/images/Tank/Hero781-icon.webp",
+    "/images/Tank/Hero811-icon.webp",
+    "/images/Tank/Hero871-icon.webp",
+    "/images/Tank/Hero881-icon.webp",
+    "/images/Tank/Hero931-icon.webp",
+    "/images/Tank/Hero1041-icon.webp",
+    "/images/Tank/Hero1111-icon.webp",
+    "/images/Tank/Hero1171-icon.webp"
         
-         <div class="list_3">
-          <div class="form-check">
-            <input type="radio" name="select_2" value="20" id="tank_20_2" />
-            <label for="tank_20_2"></label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" name="select_2" value="21" id="tank_21_2" />
-            <label for="tank_21_2"></label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" name="select_2" value="22" id="tank_22_2" />
-            <label for="tank_22_2"></label>
-          </div>
+      ];
+    %>
+     
+    
+          <% posts.each do |post| %>
+          <label>
+          <label class="tank">
+          <%= f.radio_button(:image_url2, post, {style:"display:none;"}) %>
+          <%= image_tag post, size: "50x50" %>
+        </label>
+        <br>
+      </label>
+        <% end %>
         </div>
     </div>
-
-   <div id="fightList2">
-           <div class="list_2">
-         <div class="form-check">
-         <input type="radio" name="select_1" value="31" id="fight_31" />
-         <label for="fight_31"></label>
-         </div>
-        
-         <div class="form-check">
-         <input type="radio" name="select_1" value="32" id="fight_32" />
-         <label for="fight_32"></label>
-         </div>
-
-         <div class="form-check">
-         <input type="radio"name="select_1"value="33" id="fight_33" />
-         <label for="fight_33"></label>
-         </div>
-
-         <div class="form-check">
-         <input type="radio"name="select_1" value="34" id="fight_34" />
-         <label for="fight_34"></label>
+  
+  
+      <div id="fightList2">
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+          <% posts.each do |post| %>
+            <label>
+              <label class="fight">
+                <%= f.radio_button(:image_url2, post, {style: "display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
         </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="35" id="fight_35" />
-         <label for="fight_35"></label>
-        </div>
-        </div>
-
-        <div class="list_2">
-        <div class="form-check">
-         <input type="radio"name="select_1" value="36" id="fight_36" />
-         <label for="fight_36"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="37" id="fight_37" />
-         <label for="fight_37"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="38" id="fight_38" />
-         <label for="fight_38"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio" name="select_1"value="39" id="fight_39" />
-         <label for="fight_39"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="40" id="fight_40" />
-         <label for="fight_40"></label>
-        </div>
-        </div>
-
-        <div class="list_3">
-        <div class="form-check">
-         <input type="radio"name="select_1" value="41" id="fight_41" />
-         <label for="fight_41"></label>
-        </div>
-   
-      <div class="form-check">
-       <input type="radio"name="select_1" value="42" id="fight_42" />
-       <label for="fight_42"></label>
-       </div>
-
-       <div class="form-check">
-         <input type="radio"name="select_1" value="43" id="fight_43" />
-         <label for="fight_43"></label>
-        </div>
-
-       <div class="form-check">
-         <input type="radio"name="select_1" value="44" id="fight_44" />
-         <label for="fight_44"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="45" id="fight_45" />
-         <label for="fight_45"></label>
-        </div>
-        </div>
-
-        <div class="list_4">
-        <div class="form-check">
-         <input type="radio"name="select_1" value="46" id="fight_46" />
-         <label for="fight_46"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="47" id="fight_47" />
-         <label for="fight_47"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio" name="select_1"value="48" id="fight_48" />
-         <label for="fight_48"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="49" id="fight_49" />
-         <label for="fight_49"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="50" id="fight_50" />
-         <label for="fight_50"></label>
-        </div>
-        </div>
-
-        <div class="list_5">
-        <div class="form-check">
-         <input type="radio" name="select_1"value="51" id="fight_51" />
-         <label for="fight_51"></label>
-       </div>
-
-         <div class="form-check">
-         <input type="radio"name="select_1" value="52" id="fight_52" />
-         <label for="fight_52"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="53" id="fight_53" />
-         <label for="fight_53"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="54" id="fight_54" />
-         <label for="fight_54"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio" name="select_1"value="55" id="fight_55" />
-         <label for="fight_55"></label>
-        </div>
-       </div>
-       <div class="list_6">
-        <div class="form-check">
-         <input type="radio"name="select_1" value="56" id="fight_56" />
-         <label for="fight_56"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="57" id="fight_57" />
-         <label for="fight_57"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="58" id="fight_58" />
-         <label for="fight_58"></label>
-        </div>
-
-        <div class="form-check">
-         <input type="radio"name="select_1" value="59" id="fight_59" />
-         <label for="fight_59"></label>
-        </div>
-       </div>
-     </div>
-   
-
-
-         <div id="mageList2">
-          <div class="list_1">
-          <div class="form-check">
-              <input type="radio" name="select_1" value="60" id="mage_60" />
-              <label for="mage_60"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="61" id="mage_61" />
-           <label for="mage_61"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="62" id="mage_61" />
-           <label for="mage_62"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="63" id="mage_63" />
-           <label for="mage_63"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="64" id="mage_64" />
-           <label for="mage_64"></label>
-          </div>
-</div>
-        <div class="list_2">
-          <div class="form-check">
-           <input type="radio" name="select_1" value="65" id="mage_65" />
-           <label for="mage_65"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="66" id="mage_66" />
-           <label for="mage_66"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="67" id="mage_67" />
-           <label for="mage_67"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="68" id="mage_68" />
-           <label for="mage_68"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="69" id="mage_69" />
-           <label for="mage_69"></label>
-          </div>
-      </div>
-          <div class="list_3">
-          <div class="form-check">
-           <input type="radio" name="select_1" value="70" id="mage_70" />
-           <label for="mage_70"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="71" id="mage_71" />
-           <label for="mage_71"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="72" id="mage_72" />
-           <label for="mage_72"></label>
-          </div>
-
-          <!--mage73はない-->
-          <div class="form-check">
-           <input type="radio" name="select_1" value="74" id="mage_74" />
-           <label for="mage_74"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="75" id="mage_75" />
-           <label for="mage_75"></label>
-          </div>
-      </div>
-          <div class="list_4">
-          <div class="form-check">
-           <input type="radio" name="select_1" value="76" id="mage_76" />
-           <label for="mage_76"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="77" id="mage_77" />
-           <label for="mage_77"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="78" id="mage_79" />
-           <label for="mage_78"></label>
-          </div>
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="80" id="mage_80" />
-           <label for="mage_80"></label>
-          </div>
-      </div>
-          <div class="form-check">
-           <input type="radio" name="select_1" value="81" id="mage_81" />
-           <label for="mage_81"></label>
-          </div>
-          <div class="list_5">
-
-          <div class="form-check">
-           <input type="radio" name="select_1" value="82" id="mage_82" />
-           <label for="mage_82"></label>
-          </div>
-          <div class="form-check">
-           <input type="radio" name="select_1" value="83" id="mage_83" />
-           <label for="mage_83"></label>
-          </div>
-          <div class="form-check">
-           <input type="radio" name="select_1" value="84" id="mage_84" />
-           <label for="mage_84"></label>
-          </div>
-          <div class="form-check">
-           <input type="radio" name="select_1" value="85" id="mage_85" />
-           <label for="mage_85"></label>
-          </div>
-          <div class="form-check">
-           <input type="radio" name="select_1" value="86" id="mage_86" />
-           <label for="mage_86"></label>
-          </div>
-         </div>
-</div>
- <!--asasin-->
- <div class="list_1">
-          <div id="asasinList2">
-           <div class="form-check">
-             <input type="radio" name="select_1" value="90" id="asasin_90" />
-             <label for="asasin_90"></label>
-            </div>
-
-           <div class="form-check">
-             <input type="radio" name="select_1" value="91" id="asasin_91" />
-             <label for="asasin_91"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="92" id="asasin_92" />
-             <label for="asasin_92"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="93" id="asasin_93" />
-             <label for="asasin_93"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="94" id="asasin_94" />
-             <label for="asasin_94"></label>
-            </div>
-        </div>
-          <div class="list_2">
-            <div class="form-check">
-             <input type="radio" name="select_1" value="95" id="asasin_95" />
-             <label for="asasin_95"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="96" id="asasin_96" />
-             <label for="asasin_96"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="97" id="asasin_97" />
-             <label for="asasin_97"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="98" id="asasin_98" />
-             <label for="asasin_98"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="99" id="asasin_99" />
-             <label for="asasin_99"></label>
-            </div>
-          </div>
-
-            <div class="list_3">
-            <div class="form-check">
-             <input type="radio" name="select_1" value="100" id="asasin_100" />
-             <label for="asasin_100"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="101" id="asasin_101" />
-             <label for="asasin_101"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="102" id="asasin_102" />
-             <label for="asasin_102"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="103" id="asasin_103" />
-             <label for="asasin_103"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="104" id="asasin_104" />
-             <label for="asasin_104"></label>
-            </div>
-        </div>
-        <div class="list_4">
-            <div class="form-check">
-             <input type="radio" name="select_1" value="105" id="asasin_105" />
-             <label for="asasin_105"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="106" id="asasin_106" />
-             <label for="asasin_106"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="107" id="asasin_107" />
-             <label for="asasin_107"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="108" id="asasin_108" />
-             <label for="asasin_108"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="109" id="asasin_109" />
-             <label for="asasin_109"></label>
-            </div>
-            
-            <div class="form-check">
-             <input type="radio" name="select_1" value="110" id="asasin_110" />
-             <label for="asasin_110"></label>
-            </div>
-           </div>
-       </div>
-            <!--hanter-->
-      <div id="hanterList2">
-        <div class="list_1">
-           <div class="form-check">
-             <input type="radio" name="select_1" value="120" id="hanter_120" />
-             <label for="hanter_120"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="121" id="hanter_121" />
-             <label for="hanter_121"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="122" id="hanter_122"/>
-             <label for="hanter_122"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="123" id="hanter_123" />
-             <label for="hanter_123"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="124" id="hanter_124" />
-             <label for="hanter_124"></label>
-            </div>
-           </div>
-            <div class="list_2">
-            <div class="form-check">
-             <input type="radio" name="select_1" value="125" id="hanter_125" />
-             <label for="hanter_125"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="126" id="hanter_126" />
-             <label for="hanter_126"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="127" id="hanter_127" />
-             <label for="hanter_127"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="128" id="hanter_128" />
-             <label for="hanter_128"></label>
-            </div>
-            <div class="form-check">
-             <input type="radio" name="select_1" value="129" id="hanter_129" />
-             <label for="hanter_129"></label>
-            </div>
-          </div>
-          <div class="list_3">
-            <div class="form-check">
-             <input type="radio" name="select_1" value="130" id="hanter_130" />
-             <label for="hanter_130"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="131" id="hanter_131" />
-             <label for="hanter_131"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="132" id="hanter_132" />
-             <label for="hanter_132"></label>
-            </div>
-
-            <div class="form-check">
-             <input type="radio" name="select_1" value="133" id="hanter_133" />
-             <label for="hanter_133"></label>
-            </div>
-            </div>
-
-            <div class="list_4">
-            <div class="form-check">
-             <input type="radio" name="select_1" value="134" id="hanter_134" />
-             <label for="hanter_134"></label>
-            </div>
-            <div class="form-check">
-             <input type="radio" name="select_1" value="135" id="hanter_135" />
-             <label for="hanter_135"></label>
-            </div>
-            <div class="form-check">
-             <input type="radio" name="select_1" value="136" id="hanter_136" />
-             <label for="hanter_136"></label>
-            </div>
-            <div class="form-check">
-             <input type="radio" name="select_1" value="137" id="hanter_137" />
-             <label for="hanter_137"></label>
-            </div>
-            <div class="form-check">
-             <input type="radio" name="select_1" value="138" id="hanter_138" />
-             <label for="hanter_138"></label>
-            </div>
-            <div class="form-check">
-             <input type="radio" name="select_1" value="139" id="hanter_139" />
-             <label for="hanter_139"></label>
-            </div>
-         </div>
-
-            <div id="supportList2">  
-              <div class="list_1">
-             <div class="form-check">
-               <input type="radio" name="select_1" value="140" id="hanter_140" />
-               <label for="support_140"></label>
-              </div>
-           
-               <div class="form-check">
-                 <input type="radio" name="select_1" value="141" id="hanter_141" />
-                 <label for="support_141"></label>
-                </div>
-              
-                 <div class="form-check">
-                   <input type="radio" name="select_1" value="142" id="hanter_142" />
-                   <label for="support_142"></label>
-                  </div>
-            
-                   <div class="form-check">
-                     <input type="radio" name="select_1" value="143" id="hanter_143" />
-                     <label for="support_143"></label>
-                    </div>
       
-                     <div class="form-check">
-                       <input type="radio" name="select_1" value="144" id="hanter_1404" />
-                       <label for="support_144"></label>
-                      </div>
-                   </div>
-                   <div class="list_2">
-                       <div class="form-check">
-                         <input type="radio" name="select_1" value="145" id="hanter_145" />
-                         <label for="support_145"></label>
-                        </div>
-                   
-                         <div class="form-check">
-                           <input type="radio" name="select_1" value="146" id="hanter_146" />
-                           <label for="support_146"></label>
-                          </div>
-                       
-                           <div class="form-check">
-                             <input type="radio" name="select_1" value="147" id="hanter_147" />
-                             <label for="support_147"></label>
-                            </div>
-                        
-                             <div class="form-check">
-                               <input type="radio" name="select_1" value="148" id="hanter_148" />
-                               <label for="support_148"></label>
-                              </div>
-                            
-                               <div class="form-check">
-                                 <input type="radio" name="select_1" value="149" id="hanter_149" />
-                                 <label for="support_149"></label>
-                                </div>
-                            </div>
-                            <div class="list_3">
-                                 <div class="form-check">
-                                   <input type="radio" name="select_1" value="150" id="hanter_150" />
-                                   <label for="support_150"></label>
-                                  </div>
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+          <% posts.each do |post| %>
+            <label>
+              <label class="fight">
+                <%= f.radio_button(:image_url2, post, {style:"display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      
+  
+  
+  
+  
+  
+      <div id="mageList2">
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
+            
+          <% posts.each do |post| %>
+          <label>
+              <label class="mage">
+                <%= f.radio_button(:image_url2, post, {style: "display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+          <% posts.each do |post| %>
+            <label>
+              <label class="mage">
+                <%= f.radio_button(:image_url2, post, {style:"display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      
+  
+      <div id="asasinList2">
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+            
+          <% posts.each do |post| %>
+          <label>
+              <label class="asasin">
+                <%= f.radio_button(:image_url2, post, {style: "display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+          <% posts.each do |post| %>
+            <label>
+              <label class="asasin">
+                <%= f.radio_button(:image_url2, post, {style:"display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      
+  
+      <div id="hanterList2">
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+            
+          <% posts.each do |post| %>
+          <label>
+          <label class="hanter">
+             <%= f.radio_button(:image_url2, post, {style: "display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      
+  
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+          <% posts.each do |post| %>
+            <label class="hanter">
+              <label class="mage">
+                <%= f.radio_button(:image_url2, post, {style:"display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      
+  
+  
+      <div id="supportList2">
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+            
+          <% posts.each do |post| %>
+          <label>
+              <label class="support">
+                <%= f.radio_button(:image_url2, post, {style: "display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      
+  
+        <div class="list">
+          <%= f.label :image_url2 %><br>
+          <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+          <% posts.each do |post| %>
+            <label>
+              <label class="support">
+                <%= f.radio_button(:image_url2, post, {style:"display:none;"}) %>
+                <%= image_tag post, size: "50x50" %>
+              </label>
+              <br>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      
 
-                                   <div class="form-check">
-                                     <input type="radio" name="select_1" value="151" id="hanter_151" />
-                                     <label for="support_151"></label>
-                                    </div>
-
-                                     <div class="form-check">
-                                       <input type="radio" name="select_1" value="152" id="hanter_152" />
-                                       <label for="support_152"></label>
-                                      </div>
-
-                                       <div class="form-check">
-                                         <input type="radio" name="select_1" value="153" id="hanter_153" />
-                                         <label for="support_153"></label>
-                                        </div>
-
-                                         <div class="form-check">
-                                           <input type="radio" name="select_1" value="154" id="support_154" />
-                                           <label for="support_154"></label>
-                                          </div>
-                                       
-                                           <div class="form-check">
-                                             <input type="radio" name="select_1" value="155" id="support_155" />
-                                             <label for="support_155"></label>
-                                           </div>
-                                           </div>
-                                           <td>
-  </div> 
-  </tr>
-</table>
-
-<%= f.submit "編集を完了する！！" %>
-</form>
-
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<p class="pp">有利なキャラ2 任意(optional,advantageous,2)</p>
+<td>
+  <div class="select1">
+    <div>
+  <input class="form-check-input" type="radio" name="maker22" value="1" id="tank_22" onclick="formSwitch22()" />
+  <label for="tank_22">タンク</label>
+  <input class="form-check-input" type="radio" name="maker22" value="2" id="fight_22" onclick="formSwitch22()" />
+  <label for="fight_22">ファイター</label>
+  <input class="form-check-input" type="radio" name="maker22" value="3" id="mage_22" onclick="formSwitch22()" />
+  <label for="mage_22">メイジ</label></div>
+  <div>
+  <input class="form-check-input" type="radio" name="maker22" value="4" id="asasin_22" onclick="formSwitch22()" />
+  <label for="asasin_22">アサシン</label>
+  <input class="form-check-input" type="radio" name="maker22" value="5" id="hanter_22" onclick="formSwitch22()" />
+  <label for="hanter_22">ハンター</label>
+  <input class="form-check-input" type="radio" name="maker22" value="6" id="support_22" onclick="formSwitch22()" />
+  <label for="support_22">サポート</label></div>
 </div>
-<% end %>
+</td>
 
+<td colspan="6">
+  <div id="tankList22">
+    <div class="list">
+    <%= f.label :image_url22%><br>
+<!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+<%posts = [
+    "/images/Tank/Hero041-icon.webp",
+    "/images/Tank/Hero061-icon.webp",
+    "/images/Tank/Hero091-icon.webp",
+    "/images/Tank/Hero101-icon.webp",
+    "/images/Tank/Hero191-icon.webp",
+    "/images/Tank/Hero201-icon.webp",
+    "/images/Tank/Hero291-icon.webp",
+    "/images/Tank/Hero321-icon.webp",
+    "/images/Tank/Hero351-icon.webp",
+    "/images/Tank/Hero411-icon.webp",
+    "/images/Tank/Hero491-icon.webp"
+  ];
+%>
+
+     <% posts.each do |post| %>
+     <label>
+       <label class="tank">
+         <%= f.radio_button(:image_url22, post , {style: "display:none;"}) %>
+         <%= image_tag post, size: "50x50" %>
+       </label>
+       <br>
+      </label>
+     <% end %>
+</div>
+      <div class="list"><br>
+      <%= f.label :image_url22%>
+  <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+  <%posts = [ "/images/Tank/Hero591-icon.webp",
+  "/images/Tank/Hero701-icon.webp",
+  "/images/Tank/Hero781-icon.webp",
+  "/images/Tank/Hero811-icon.webp",
+  "/images/Tank/Hero871-icon.webp",
+  "/images/Tank/Hero881-icon.webp",
+  "/images/Tank/Hero931-icon.webp",
+  "/images/Tank/Hero1041-icon.webp",
+  "/images/Tank/Hero1111-icon.webp",
+  "/images/Tank/Hero1171-icon.webp"
+      
+    ];
+  %>
+   
+  
+        <% posts.each do |post| %>
+      <label>
+        <label class="tank">
+        <%= f.radio_button(:image_url22, post, {style:"display:none;"}) %>
+        <%= image_tag post, size: "50x50" %>
+        </label>
+ 
+      <br>
+    </label>
+      <% end %>
+  </div>
+</div>
+
+
+    <div id="fightList22">
+      <div class="list">
+        <%= f.label :image_url22 %><br>
+        <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+        <% posts.each do |post| %>
+        <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url22, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+       
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url22 %><br>
+        <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+        <% posts.each do |post| %>
+
+          <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url22, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+
+
+
+
+    <div id="mageList22">
+      <div class="list">
+        <%= f.label :image_url22 %><br>
+        <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
+          
+        <% posts.each do |post| %>
+        <label >
+            <label class="mage">
+              <%= f.radio_button(:image_url22, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url22%><br>
+        <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="mage">
+              <%= f.radio_button(:image_url22, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="asasinList22">
+      <div class="list">
+        <%= f.label :image_url22%><br>
+        <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url22, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url22 %><br>
+        <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url22, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="hanterList22">
+      <div class="list">
+        <%= f.label :image_url22%><br>
+        <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+           <%= f.radio_button(:image_url22, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url22 %><br>
+        <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+              <%= f.radio_button(:image_url22, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+
+    <div id="supportList22">
+      <div class="list">
+        <%= f.label :image_url22 %><br>
+        <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="support">
+              <%= f.radio_button(:image_url22, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url22%><br>
+        <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="support">
+              <%= f.radio_button(:image_url22, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+</div>
+
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<p class="pp">有利なキャラ３ 任意(optional,advantageous,3)</p>
+<td>
+  <div class="select1">
+    <div >
+  <input class="form-check-input" type="radio" name="maker23" value="1" id="tank_23" onclick="formSwitch23()" />
+  <label for="tank_23">タンク</label>
+  <input class="form-check-input" type="radio" name="maker23" value="2" id="fight_23" onclick="formSwitch23()" />
+  <label for="fight_23">ファイター</label>
+  <input class="form-check-input" type="radio" name="maker23" value="3" id="mage_23" onclick="formSwitch23()" />
+  <label for="mage_23">メイジ</label></div>
+  <div>
+  <input class="form-check-input" type="radio" name="maker23" value="4" id="asasin_23" onclick="formSwitch23()" />
+  <label for="asasin_23">アサシン</label>
+  <input class="form-check-input" type="radio" name="maker23" value="5" id="hanter_23" onclick="formSwitch23()" />
+  <label for="hanter_23">ハンター</label>
+  <input class="form-check-input" type="radio" name="maker23" value="6" id="support_23" onclick="formSwitch23()" />
+  <label for="support_23">サポート</label></div>
+</div>
+</td>
+<td colspan="6">
+  <div id="tankList23">
+    <div class="list">
+    <%= f.label :image_url23%><br>
+<!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+<%posts = [
+    "/images/Tank/Hero041-icon.webp",
+    "/images/Tank/Hero061-icon.webp",
+    "/images/Tank/Hero091-icon.webp",
+    "/images/Tank/Hero101-icon.webp",
+    "/images/Tank/Hero191-icon.webp",
+    "/images/Tank/Hero201-icon.webp",
+    "/images/Tank/Hero291-icon.webp",
+    "/images/Tank/Hero321-icon.webp",
+    "/images/Tank/Hero351-icon.webp",
+    "/images/Tank/Hero411-icon.webp",
+    "/images/Tank/Hero491-icon.webp"
+  ];
+%>
+     <% posts.each do |post| %>
+     <label>
+       <label class="tank">
+         <%= f.radio_button(:image_url23, post , {style: "display:none;"}) %>
+         <%= image_tag post, size: "50x50" %>
+       </label>
+       <br>
+      </label>
+     <% end %>
+</div>
+      <div class="list"><br>
+      <%= f.label :image_url23%>
+  <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+  <%posts = [ "/images/Tank/Hero591-icon.webp",
+  "/images/Tank/Hero701-icon.webp",
+  "/images/Tank/Hero781-icon.webp",
+  "/images/Tank/Hero811-icon.webp",
+  "/images/Tank/Hero871-icon.webp",
+  "/images/Tank/Hero881-icon.webp",
+  "/images/Tank/Hero931-icon.webp",
+  "/images/Tank/Hero1041-icon.webp",
+  "/images/Tank/Hero1111-icon.webp",
+  "/images/Tank/Hero1171-icon.webp"
+      
+    ];
+  %>
+   
+  
+        <% posts.each do |post| %>
+      <label>
+        <label class="tank">
+        <%= f.radio_button(:image_url23, post, {style:"display:none;"}) %>
+        <%= image_tag post, size: "50x50" %>
+        </label>
+ 
+      <br>
+    </label>
+      <% end %>
+  </div>
+</div>
+
+
+    <div id="fightList23">
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+        <% posts.each do |post| %>
+        <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url23, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+       
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+        <% posts.each do |post| %>
+
+          <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url23, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+
+
+
+
+    <div id="mageList23">
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
+        <% posts.each do |post| %>
+        <label >
+            <label class="mage">
+              <%= f.radio_button(:image_url23, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+      <div class="list">
+        <%= f.label :image_url23%><br>
+        <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="mage">
+              <%= f.radio_button(:image_url23, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="asasinList23">
+      <div class="list">
+        <%= f.label :image_url23%><br>
+        <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url23, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url23, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="hanterList23">
+      <div class="list">
+        <%= f.label :image_url23%><br>
+        <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+           <%= f.radio_button(:image_url23, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+              <%= f.radio_button(:image_url23, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+
+    <div id="supportList23">
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="support">
+              <%= f.radio_button(:image_url23, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url23 %><br>
+        <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="support">
+              <%= f.radio_button(:image_url23, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+</div>
+
+
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<div class="bb">
+
+
+
+
+
+      <p class="pppp">不利1 (disadvantageous,1)</p>
+      <td>
+        <div class="select1">
+    <div>
+        <input class="form-check-input" type="radio" name="maker3" value="1" id="tank_3" onclick="formSwitch3()" />
+        <label for="tank_3">タンク</label>
+        <input class="form-check-input" type="radio" name="maker3" value="2" id="fight_3" onclick="formSwitch3()" />
+        <label for="fight_3">ファイター</label>
+        <input class="form-check-input" type="radio" name="maker3" value="3" id="mage_3" onclick="formSwitch3()" />
+        <label for="mage_3">メイジ</label></div>
+        <div>
+        <input class="form-check-input" type="radio" name="maker3" value="4" id="asasin_3" onclick="formSwitch3()" />
+        <label for="asasin_3">アサシン</label>
+        <input class="form-check-input" type="radio" name="maker3" value="5" id="hanter_3" onclick="formSwitch3()" />
+        <label for="hanter_3">ハンター</label>
+        <input class="form-check-input" type="radio" name="maker3" value="6" id="support_3" onclick="formSwitch3()" />
+        <label for="support_3">サポート</label></div>
+      </div>
+      </td>
+      
+      <td colspan="6">
+        <div id="tankList3">
+          <div class="list">
+          <%= f.label :image_url3%><br>
+      <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+      <%posts = [
+          "/images/Tank/Hero041-icon.webp",
+          "/images/Tank/Hero061-icon.webp",
+          "/images/Tank/Hero091-icon.webp",
+          "/images/Tank/Hero101-icon.webp",
+          "/images/Tank/Hero191-icon.webp",
+          "/images/Tank/Hero201-icon.webp",
+          "/images/Tank/Hero291-icon.webp",
+          "/images/Tank/Hero321-icon.webp",
+          "/images/Tank/Hero351-icon.webp",
+          "/images/Tank/Hero411-icon.webp",
+          "/images/Tank/Hero491-icon.webp"
+        ];
+      %>
+      
+           <% posts.each do |post| %>
+           <label>
+             <label class="tank">
+               <%= f.radio_button(:image_url3, post , {style: "display:none;"}) %>
+               <%= image_tag post, size: "50x50" %>
+             </label>
+             <br>
+            </label>
+           <% end %>
+      </div>
+            <div class="list"><br>
+            <%= f.label :image_url3%>
+        <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+        <%posts = [ "/images/Tank/Hero591-icon.webp",
+        "/images/Tank/Hero701-icon.webp",
+        "/images/Tank/Hero781-icon.webp",
+        "/images/Tank/Hero811-icon.webp",
+        "/images/Tank/Hero871-icon.webp",
+        "/images/Tank/Hero881-icon.webp",
+        "/images/Tank/Hero931-icon.webp",
+        "/images/Tank/Hero1041-icon.webp",
+        "/images/Tank/Hero1111-icon.webp",
+        "/images/Tank/Hero1171-icon.webp"
+            
+          ];
+        %>
+         
+        
+              <% posts.each do |post| %>
+            <label>
+              <label class="tank">
+              <%= f.radio_button(:image_url3, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+              </label>
+       
+            <br>
+          </label>
+            <% end %>
+        </div>
+      </div>
+      
+      
+          <div id="fightList3">
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+              <% posts.each do |post| %>
+              <label>
+                  <label class="fight">
+                    <%= f.radio_button(:image_url3, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+             
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+              <% posts.each do |post| %>
+      
+                <label>
+                  <label class="fight">
+                    <%= f.radio_button(:image_url3, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+      
+      
+      
+      
+          <div id="mageList3">
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
+                
+              <% posts.each do |post| %>
+              <label >
+                  <label class="mage">
+                    <%= f.radio_button(:image_url3, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+              <% posts.each do |post| %>
+                <label>
+                  <label class="mage">
+                    <%= f.radio_button(:image_url3, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+          <div id="asasinList3">
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+                
+              <% posts.each do |post| %>
+            <label>
+                  <label class="asasin">
+                    <%= f.radio_button(:image_url3, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+              <% posts.each do |post| %>
+                <label>
+                  <label class="asasin">
+                    <%= f.radio_button(:image_url3, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+          <div id="hanterList3">
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+                
+              <% posts.each do |post| %>
+            <label>
+              <label class="hanter">
+                 <%= f.radio_button(:image_url3, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+      
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+              <% posts.each do |post| %>
+            <label>
+              <label class="hanter">
+                    <%= f.radio_button(:image_url3, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+      
+          <div id="supportList3">
+            <div class="list">
+              <%= f.label :image_url3 %><br>
+              <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+                
+              <% posts.each do |post| %>
+            <label>
+                  <label class="support">
+                    <%= f.radio_button(:image_url3, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+      
+            <div class="list">
+              <%= f.label :image_url3%><br>
+              <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+              <% posts.each do |post| %>
+                <label>
+                  <label class="support">
+                    <%= f.radio_button(:image_url3, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+      </div>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+<%# ここまで第一 -----------------------------------------------------------------------------------        %>
+
+<p class="pppp">不利2 任意(optional,disadvantageous,2)</p>
+<td>
+  <div class="select1">
+    <div>
+  <input class="form-check-input" type="radio" name="maker33" value="1" id="tank_33" onclick="formSwitch33()" />
+  <label for="tank_33">タンク</label>
+  <input class="form-check-input" type="radio" name="maker33" value="2" id="fight_33" onclick="formSwitch33()" />
+  <label for="fight_33">ファイター</label>
+  <input class="form-check-input" type="radio" name="maker33" value="3" id="mage_33" onclick="formSwitch33()" />
+  <label for="mage_33">メイジ</label></div>
+  <div>
+  <input class="form-check-input" type="radio" name="maker33" value="4" id="asasin_33" onclick="formSwitch33()" />
+  <label for="asasin_33">アサシン</label>
+  <input class="form-check-input" type="radio" name="maker33" value="5" id="hanter_33" onclick="formSwitch33()" />
+  <label for="hanter_33">ハンター</label>
+  <input class="form-check-input" type="radio" name="maker33" value="6" id="support_33" onclick="formSwitch33()" />
+  <label for="support_33">サポート</label></div>
+</div>
+</td>
+
+<td colspan="6">
+  <div id="tankList33">
+    <div class="list">
+    <%= f.label :image_url33%><br>
+<!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+<%posts = [
+    "/images/Tank/Hero041-icon.webp",
+    "/images/Tank/Hero061-icon.webp",
+    "/images/Tank/Hero091-icon.webp",
+    "/images/Tank/Hero101-icon.webp",
+    "/images/Tank/Hero191-icon.webp",
+    "/images/Tank/Hero201-icon.webp",
+    "/images/Tank/Hero291-icon.webp",
+    "/images/Tank/Hero321-icon.webp",
+    "/images/Tank/Hero351-icon.webp",
+    "/images/Tank/Hero411-icon.webp",
+    "/images/Tank/Hero491-icon.webp"
+  ];
+%>
+
+     <% posts.each do |post| %>
+     <label>
+       <label class="tank">
+         <%= f.radio_button(:image_url33, post , {style: "display:none;"}) %>
+         <%= image_tag post, size: "50x50" %>
+       </label>
+       <br>
+      </label>
+     <% end %>
+</div>
+      <div class="list"><br>
+      <%= f.label :image_url33%>
+  <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+  <%posts = [ "/images/Tank/Hero591-icon.webp",
+  "/images/Tank/Hero701-icon.webp",
+  "/images/Tank/Hero781-icon.webp",
+  "/images/Tank/Hero811-icon.webp",
+  "/images/Tank/Hero871-icon.webp",
+  "/images/Tank/Hero881-icon.webp",
+  "/images/Tank/Hero931-icon.webp",
+  "/images/Tank/Hero1041-icon.webp",
+  "/images/Tank/Hero1111-icon.webp",
+  "/images/Tank/Hero1171-icon.webp"
+      
+    ];
+  %>
+   
+  
+        <% posts.each do |post| %>
+      <label>
+        <label class="tank">
+        <%= f.radio_button(:image_url33, post, {style:"display:none;"}) %>
+        <%= image_tag post, size: "50x50" %>
+        </label>
+ 
+      <br>
+    </label>
+      <% end %>
+  </div>
+</div>
+
+
+    <div id="fightList33">
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+        <% posts.each do |post| %>
+        <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url33, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+       
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+        <% posts.each do |post| %>
+
+          <label>
+            <label class="fight">
+              <%= f.radio_button(:image_url33, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+
+
+
+
+    <div id="mageList33">
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
+          
+        <% posts.each do |post| %>
+        <label >
+            <label class="mage">
+              <%= f.radio_button(:image_url33, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="mage">
+              <%= f.radio_button(:image_url33, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="asasinList33">
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url33, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="asasin">
+              <%= f.radio_button(:image_url33, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+    <div id="hanterList33">
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+           <%= f.radio_button(:image_url33, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    
+
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+        <% posts.each do |post| %>
+      <label>
+        <label class="hanter">
+              <%= f.radio_button(:image_url33, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    
+
+
+    <div id="supportList33">
+      <div class="list">
+        <%= f.label :image_url33 %><br>
+        <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+          
+        <% posts.each do |post| %>
+      <label>
+            <label class="support">
+              <%= f.radio_button(:image_url33, post, {style: "display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+
+
+      <div class="list">
+        <%= f.label :image_url33%><br>
+        <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+        <% posts.each do |post| %>
+          <label>
+            <label class="support">
+              <%= f.radio_button(:image_url33, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+            </label>
+            <br>
+          </label>
+        <% end %>
+      </div>
+</div>
+      <p class="pppp">不利3 任意(optional,disadvantageous,3)</p>
+      <td>
+        <div class="select1">
+          <div>
+        <input class="form-check-input" type="radio" name="maker34" value="1" id="tank_34" onclick="formSwitch34()" />
+        <label for="tank_34">タンク</label>
+        <input class="form-check-input" type="radio" name="maker34" value="2" id="fight_34" onclick="formSwitch34()" />
+        <label for="fight_34">ファイター</label>
+        <input class="form-check-input" type="radio" name="maker34" value="3" id="mage_34" onclick="formSwitch34()" />
+        <label for="mage_34">メイジ</label></div>
+        <div>
+        <input class="form-check-input" type="radio" name="maker34" value="4" id="asasin_34" onclick="formSwitch34()" />
+        <label for="asasin_34">アサシン</label>
+        <input class="form-check-input" type="radio" name="maker34" value="5" id="hanter_34" onclick="formSwitch34()" />
+        <label for="hanter_34">ハンター</label>
+        <input class="form-check-input" type="radio" name="maker34" value="6" id="support_34" onclick="formSwitch34()" />
+        <label for="support_34">サポート</label></div>
+      </div>
+      </td>
+      
+      <td colspan="6">
+        <div id="tankList34">
+          <div class="list">
+          <%= f.label :image_url34%><br>
+      <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+      <%posts = [
+          "/images/Tank/Hero041-icon.webp",
+          "/images/Tank/Hero061-icon.webp",
+          "/images/Tank/Hero091-icon.webp",
+          "/images/Tank/Hero101-icon.webp",
+          "/images/Tank/Hero191-icon.webp",
+          "/images/Tank/Hero201-icon.webp",
+          "/images/Tank/Hero291-icon.webp",
+          "/images/Tank/Hero321-icon.webp",
+          "/images/Tank/Hero351-icon.webp",
+          "/images/Tank/Hero411-icon.webp",
+          "/images/Tank/Hero491-icon.webp"
+        ];
+      %>
+      
+           <% posts.each do |post| %>
+           <label>
+             <label class="tank">
+               <%= f.radio_button(:image_url34, post , {style: "display:none;"}) %>
+               <%= image_tag post, size: "50x50" %>
+             </label>
+             <br>
+            </label>
+           <% end %>
+      </div>
+            <div class="list"><br>
+            <%= f.label :image_url34%>
+        <!-- The following code creates a variable `posts` and assigns it an array of strings that are file paths for images -->
+        <%posts = [ "/images/Tank/Hero591-icon.webp",
+        "/images/Tank/Hero701-icon.webp",
+        "/images/Tank/Hero781-icon.webp",
+        "/images/Tank/Hero811-icon.webp",
+        "/images/Tank/Hero871-icon.webp",
+        "/images/Tank/Hero881-icon.webp",
+        "/images/Tank/Hero931-icon.webp",
+        "/images/Tank/Hero1041-icon.webp",
+        "/images/Tank/Hero1111-icon.webp",
+        "/images/Tank/Hero1171-icon.webp"
+            
+          ];
+        %>
+         
+        
+              <% posts.each do |post| %>
+            <label>
+              <label class="tank">
+              <%= f.radio_button(:image_url34, post, {style:"display:none;"}) %>
+              <%= image_tag post, size: "50x50" %>
+              </label>
+       
+            <br>
+          </label>
+            <% end %>
+        </div>
+      </div>
+      
+      
+          <div id="fightList34">
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts = ["/images/fighter/Hero021-icon-2.webp", "/images/fighter/Hero071-icon.webp", "/images/fighter/Hero111-icon.webp", "/images/fighter/Hero261-icon.webp", "/images/fighter/Hero371-icon.webp", "/images/fighter/Hero391-icon.webp", "/images/fighter/Hero411-icon.webp", "/images/fighter/Hero451-icon.webp", "/images/fighter/Hero541-icon.webp", "/images/fighter/Hero581-icon.webp", "/images/fighter/Hero621-icon.webp", "/images/fighter/Hero641-icon.webp", "/images/fighter/Hero671-icon.webp", "/images/fighter/Hero721-icon.webp", "/images/fighter/Hero741-icon.webp"] %>
+              <% posts.each do |post| %>
+              <label>
+                  <label class="fight">
+                    <%= f.radio_button(:image_url34, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+             
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts = [ "/images/fighter/Hero771-icon.webp", "/images/fighter/Hero801-icon.webp", "/images/fighter/Hero821-icon.webp", "/images/fighter/Hero831-icon.webp", "/images/fighter/Hero881-icon.webp", "/images/fighter/Hero901-icon.webp", "/images/fighter/Hero951-icon.webp", "/images/fighter/Hero981-icon.webp", "/images/fighter/Hero991-icon.webp", "/images/fighter/Hero1031-icon.webp", "/images/fighter/Hero1081-icon.webp", "/images/fighter/Hero1131-icon.webp", "/images/fighter/Hero1161-icon.webp", "/images/fighter/Hero1171-icon.webp"] %>
+              <% posts.each do |post| %>
+      
+                <label>
+                  <label class="fight">
+                    <%= f.radio_button(:image_url34, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+      
+      
+      
+      
+          <div id="mageList34">
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts =["/images/mage/Hero041-icon.webp","/images/mage/Hero051-icon-1.webp","/images/mage/Hero111-icon.webp","/images/mage/Hero151-icon.webp","/images/mage/Hero231-icon.webp","/images/mage/Hero331-icon.webp","/images/mage/Hero361-icon.webp","/images/mage/Hero421-icon.webp","/images/mage/Hero461-icon.webp","/images/mage/Hero521-icon.webp","/images/mage/Hero571-icon.webp","/images/mage/Hero611-icon.webp","/images/mage/Hero631-icon.webp"] %>
+                
+              <% posts.each do |post| %>
+              <label >
+                  <label class="mage">
+                    <%= f.radio_button(:image_url34, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts = ["/images/mage/Hero661-icon.webp","/images/mage/Hero681-icon.webp","/images/mage/Hero711-icon.webp","/images/mage/Hero731-icon.webp","/images/mage/Hero751-icon.webp","/images/mage/Hero811-icon.webp","/images/mage/Hero861-icon.webp","/images/mage/Hero911-icon.webp","/images/mage/Hero961-icon.webp","/images/mage/Hero1011-icon.webp","/images/mage/Hero1151-icon.webp","/images/mage/Hero1161-icon.webp","/images/mage/Hero1191-icon.webp"] %>
+              <% posts.each do |post| %>
+                <label>
+                  <label class="mage">
+                    <%= f.radio_button(:image_url34, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+          <div id="asasinList34">
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts =["/images/asasin/Hero031-icon.webp","/images/asasin/Hero071-icon.webp","/images/asasin/Hero081-icon.webp","/images/asasin/Hero161-icon.webp","/images/asasin/Hero171-icon-1.webp","/images/asasin/Hero211-icon.webp","/images/asasin/Hero241-icon.webp","/images/asasin/Hero301-icon.webp","/images/asasin/Hero421-icon.webp","/images/asasin/Hero471-icon.webp","/images/asasin/Hero511-icon.webp"] %>
+                
+              <% posts.each do |post| %>
+            <label>
+                  <label class="asasin">
+                    <%= f.radio_button(:image_url34, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts = ["/images/asasin/Hero531-icon.webp","/images/asasin/Hero561-icon.webp","/images/asasin/Hero631-icon.webp","/images/asasin/Hero691-icon.webp","/images/asasin/Hero751-icon.webp","/images/asasin/Hero841-icon.webp","/images/asasin/Hero971-icon.webp","/images/asasin/Hero1021-icon.webp","/images/asasin/Hero1091-icon.webp","/images/asasin/Hero1181-icon.webp","/images/asasin/Hero1201-icon.webp"] %>
+              <% posts.each do |post| %>
+                <label>
+                  <label class="asasin">
+                    <%= f.radio_button(:image_url34, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+          <div id="hanterList34">
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts =["/images/hanter/Hero011-icon.webp","/images/hanter/Hero121-icon.webp","/images/hanter/Hero131-icon.webp","/images/hanter/Hero181-icon.webp","/images/hanter/Hero301-icon.webp","/images/hanter/Hero311-icon.webp","/images/hanter/Hero391-icon.webp","/images/hanter/Hero401-icon.webp","/images/hanter/Hero431-icon.webp","/images/hanter/Hero531-icon.webp"]%>
+                
+              <% posts.each do |post| %>
+            <label>
+              <label class="hanter">
+                 <%= f.radio_button(:image_url34, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+      
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts = ["/images/hanter/Hero601-icon.webp","/images/hanter/Hero711-icon.webp","/images/hanter/Hero791-icon.webp","/images/hanter/Hero891-icon.webp","/images/hanter/Hero941-icon.webp","/images/hanter/Hero1001-icon.webp","/images/hanter/Hero1051-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1071-icon.webp","/images/hanter/Hero1141-icon.webp"] %>
+              <% posts.each do |post| %>
+            <label>
+              <label class="hanter">
+                    <%= f.radio_button(:image_url34, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          </div>
+          
+      
+      
+          <div id="supportList34">
+            <div class="list">
+              <%= f.label :image_url34 %><br>
+              <% posts =["/images/support/Hero051-icon.webp","/images/support/Hero061-icon.webp","/images/support/Hero091-icon.webp","/images/support/Hero101-icon.webp","/images/support/Hero141-icon.webp","/images/support/Hero191-icon.webp","/images/support/Hero201-icon.webp","/images/support/Hero341-icon-2.webp"]%>
+                
+              <% posts.each do |post| %>
+            <label>
+                  <label class="support">
+                    <%= f.radio_button(:image_url34, post, {style: "display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+          
+      
+            <div class="list">
+              <%= f.label :image_url34%><br>
+              <% posts = ["/images/support/Hero481-icon.webp","/images/support/Hero551-icon.webp","/images/support/Hero621-icon.webp","/images/support/Hero743-icon.webp","/images/support/Hero921-icon.webp","/images/support/Hero931-icon.webp","/images/support/Hero1021-icon.webp","/images/support/Hero1121-icon.webp"] %>
+              <% posts.each do |post| %>
+                <label>
+                  <label class="support">
+                    <%= f.radio_button(:image_url34, post, {style:"display:none;"}) %>
+                    <%= image_tag post, size: "50x50" %>
+                  </label>
+                  <br>
+                </label>
+              <% end %>
+            </div>
+      </div>
+
+
+      <p class="pppp">内容(100文字まで)任意(optional,content)</p>
+<div class="content_post">
+  <%= f.text_area :content, class:"content" %>
+</div>
+
+<div class="actions">
+  <%= f.submit 'Save', class: 'scary-button' %>
+</div>
+
+  
+  </main>
+<% end %>
 
 <%= javascript_include_tag "posts.js" %>
 <%= javascript_include_tag "posts2.js" %>
+
+<link rel="stylesheet" href="/assets/stylesheets/new.css">
+
+
+
+<style>
+ body {
+     background-image: url(/images/grond/Myedit.webp);
+     background-size: cover;
+ }
+ .content_post{
+  display: flex;
+    justify-content: center;
+    height: 50px;
+}
+.content{
+  
+   width: 65%;
+}
+.actions{
+  display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.scary-button {
+  background-color: rgb(128, 0, 255);
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.scary-button:hover {
+  transform: scale(1.1);
+}
+
+.scary-button:active {
+  transform: scale(0.9);
+}
+
+.scary-button:focus {
+  outline: none;
+}
+
+.scary-button:active:after {
+  content: "";
+  background-image: url('https://i.imgur.com/RL7VU1M.png');
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: -100px;
+  top: -30px;
+  animation: scary-emoji 1s linear 1;
+}
+
+@keyframes scary-emoji {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(-45deg) scale(1.2); }
+  50%  { transform: rotate(0deg) scale(1); }
+  75%  { transform: rotate(45deg) scale(1.2); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+p {
+    animation-name: p;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes p {
+    from {background-color: rgb(90, 0, 147);}
+    to {background-color: rgb(62, 0, 80);}
+}
+@media (max-width: 576px) {
+  input[type=radio] + label:before {
+    width: 35px;
+    height: 45px;
+  }
+}
+
+   </style>
+ 
+
+ 
+
+
+   
 
 
