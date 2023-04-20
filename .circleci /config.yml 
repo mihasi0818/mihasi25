@@ -1,27 +1,34 @@
 # パイプラインのバージョンを指定
 version: 2.1
 
+# ジョブ定義 : ユーザの要求次第ですが、クラスタ内で複数のジョブを実行することができます
 jobs:
   build:
+    # Dockerイメージを使用する
     docker:
       - image: circleci/ruby:3.1.3-node-browsers
-        working_directory: ~/mihasi25/src
         environment:
           DATABASE_URL: postgres://user:password@localhost/myapp_test
           RAILS_ENV: test
+
+    # ステップ定義
     steps:
+      # 依存関係の取得
       - checkout
-        path: ~/mihasi25
       - run:
           name: Install dependencies
           command: |
             sudo apt-get update && sudo apt-get install -y postgresql-client
             bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=3 --path=vendor/bundle
+
+      # データベースの設定
       - run:
           name: Configure database
           command: |
             bundle exec rails db:create RAILS_ENV=test
             bundle exec rails db:schema:load RAILS_ENV=test
+      
+      # テストを実行する
       - run:
           name: Run tests
           command: |
