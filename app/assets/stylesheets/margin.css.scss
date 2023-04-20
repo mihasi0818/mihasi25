@@ -192,18 +192,32 @@
 .mtb450 {margin-top:450px; margin-bottom:450px!important;}
 .mtb500 {margin-top:500px; margin-bottom:500px!important;}
 
-table th {
-    background-color: #fbc25b;
-    padding: 10px 20px;
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  
+  th {
+    background-color: #ffe4d4;
+    color: #f94144;
+    border: 2px solid #f94144;
   }
   
-  table td {
-    background-color: #f9ecd5;
-    padding: 11px 20px;
+  td {
+    background-color: #fff1e6;
+    color: #f3722c;
+    border: 2px solid #f3722c;
   }
-  
+}
+@media (max-width: 400px){
+  th {
+ font-size: 10px;
+  }}
   .notice {
     background-color: #ccf;
-    padding: 5px;
   }
-  
+  .ui.card > .image:not(.ui) > img {
+    border: none;
+    width: 50%;
+  }

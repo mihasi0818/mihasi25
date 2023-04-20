@@ -10,49 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_26_213245) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_142646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "post_id"
+    t.text "content"
+    t.string "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.integer "likes_count2", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+  create_table "likes", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "post_id"
-    t.string "title"
-    t.integer "a_id"
-    t.integer "b_id"
-    t.integer "c_id"
-    t.integer "d_id"
-    t.integer "e_id"
-    t.integer "f_id"
-    t.integer "g_id"
-    t.integer "h_id"
+    t.string "user_id", null: false
+    t.binary "select_1"
+    t.integer "maker1"
+    t.string "image_url1"
+    t.string "image_url2"
+    t.string "image_url22"
+    t.string "image_url23"
+    t.string "image_url3"
+    t.string "image_url33"
+    t.string "image_url34"
+    t.string "content"
+    t.integer "likes_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.string "category"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
+    t.string "follower_id", null: false
+    t.string "followed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", id: :string, force: :cascade do |t|
@@ -69,4 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_213245) do
     t.datetime "reset_sent_at"
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "relationships", "users", column: "followed_id", name: "fk_relationships_followed"
+  add_foreign_key "relationships", "users", column: "follower_id", name: "fk_relationships_follower"
 end
