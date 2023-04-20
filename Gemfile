@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Use Rails 7 with Ruby 3.0.3 or 3.1.0
@@ -53,9 +52,7 @@ gem 'sassc-rails'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-end
 
-group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
@@ -71,6 +68,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 gem 'semantic-ui-sass'
@@ -83,7 +82,3 @@ gem 'pagy'
 gem 'kaminari'
 gem 'recaptcha'
 gem 'dotenv-rails'
-
-group :development, :test do
-  gem 'rspec-rails' # 追加
-end
