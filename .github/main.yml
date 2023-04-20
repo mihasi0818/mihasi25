@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  DATABASE_URL: postgresql://postgres@db:5432/myapp_test?pool=5&timeout=5000
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,19 +14,26 @@ jobs:
       db:
         image: postgres
         env:
-          POSTGRES_DB: myapp_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: myapp_test
+        ports:
+        - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build and test rails app with PostgreSQL
+
+      - name: Build and test Rails app with PostgreSQL
         run: |
           docker build . --file Dockerfile --tag myapp
-          docker run -d -p 3000:3000 --env DATABASE_URL=$DATABASE_URL myapp
-          docker ps
+          docker run -d -p 3000:3000 --env DATABASE_URL=postgresql://postgres:postgres@db:5432/myapp_test?pool=5&timeout=5000 myapp
           bundle install
           bin/rails db:create RAILS_ENV=test
           bin/rails db:migrate RAILS_ENV=test
-          bin/rspec # テストを実行する
+          bin/rspec
